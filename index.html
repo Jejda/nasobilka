@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Rytíř Násobitel</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Hlavní stránka hry -->
+    <div id="main-menu" class="screen">
+        <div id="game-container">
+            <h1 id="game-title">Rytíř Násobitel</h1>
+            <button id="start-button" onclick="startGame()">Začni hru</button>
+            <p><a href="#" id="train-link" onclick="showTraining()">Pokud se necítíš na boj, můžeš se mnou trénovat</a></p>
+        </div>
+    </div>
+
+    <!-- Hlavní hra -->
+    <div id="game-screen" class="screen" style="display: none;">
+        <div id="game-container">
+            <h1 id="game-title-dynamic"></h1>
+            <img id="enemy-image" style="display: none; max-width: 300px; margin: 20px auto;">
+            <div id="story-text"></div>
+            <div id="button-container">
+                <button id="continue-button" style="display: none;" onclick="nextStep()">Pokračovat</button>
+            </div>
+            <div id="choice-container" style="display: none;">
+                <button id="choice1" onclick="choosePath(1)"></button>
+                <button id="choice2" onclick="choosePath(2)"></button>
+            </div>
+            <div id="question-container" style="display: none;">
+                <p id="question"></p>
+                <button id="answer1" onclick="checkAnswer(1)"></button>
+                <button id="answer2" onclick="checkAnswer(2)"></button>
+                <button id="answer3" onclick="checkAnswer(3)"></button>
+            </div>
+            <div id="status">
+                <p>Životy: <span id="lives">3</span></p>
+                <p>Body odvahy: <span id="score">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tréninková appka (Malá násobilka) -->
+    <div id="training-screen" class="screen" style="display: none;">
+        <div id="game-container">
+            <h1>Malá násobilka</h1>
+            <div id="options">
+                <div id="operation-options">
+                    <div class="checkbox-container"><input type="checkbox" id="opMultiply" checked> Násobení</div>
+                    <div class="checkbox-container"><input type="checkbox" id="opDivide" checked> Dělení</div>
+                </div>
+                <p>Vyber čísla k procvičení:</p>
+                <div id="number-options">
+                    <div class="checkbox-container"><input type="checkbox" id="numAll" checked> Vše</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num2" checked> 2</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num3" checked> 3</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num4" checked> 4</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num5" checked> 5</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num6" checked> 6</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num7" checked> 7</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num8" checked> 8</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num9" checked> 9</div>
+                    <div class="checkbox-container"><input type="checkbox" id="num10" checked> 10</div>
+                </div>
+            </div>
+            <div class="question-container">
+                <span id="question-part"></span>
+                <input type="number" id="answer" placeholder="..." inputmode="numeric" pattern="[0-9]*">
+                <button id="submit">Odeslat</button>
+            </div>
+            <div id="feedback"></div>
+            <div id="dot-grid"></div>
+            <button id="return-to-main" onclick="showMainMenu()">Zpět na hlavní stránku</button>
+        </div>
+    </div>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>
